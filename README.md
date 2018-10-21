@@ -41,7 +41,7 @@ You can deploy the project on test and live environment with this options:
 
 - [Flutterwave Rave Test](https://ravesandbox.flutterwave.com/dashboard/settings/apis) to get your **`TEST`** public and private key
 
-`NOTE: ` Set the production of option to true or false depending on our deployment environment.
+`NOTE: ` Set the production of option to `true` or `false` depending on our deployment environment.
 
 ### Contributions
 
