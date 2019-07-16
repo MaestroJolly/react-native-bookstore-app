@@ -69,25 +69,35 @@ export default class PaymentScreen extends React.Component {
   render() {
     let itemAmount; 
     itemAmount = this.state.price.substring(1);
-    return (
-      <ScrollView style={{ flex: 1 }}>
-      <Rave 
-          amount = {itemAmount} 
-          country="GH" 
-          currency="GHS" 
-          email="test@mail.com" 
-          firstname="Oluwole" 
-          lastname="Adebiyi" 
-          publickey="FLWPUBK-92e93a5c487ad64939327052e113c813-X"
-          secretkey="FLWSECK-61037cfe3cfc53b03e339ee201fa98f5-X"
-          paymenttype="both" // or set to both for card and mobile money transactions
-          page="mobilemoneygh"
-          meta={[{ metaname: "color", metavalue: "red" }, { metaname: "storelocation", metavalue: "ikeja" }]}
-          production={false} 
-          onSuccess={res => this.onSuccess(res)} 
-          onFailure={e => this.onFailure(e)}
-          />
-       </ScrollView>
+    
+    return ( <Rave amount = {itemAmount}
+      country = "NG"
+      currency = "NGN"
+      email = {this.state.email}
+      firstname = {this.state.firstname}
+      lastname = {this.state.lastname}
+      publickey = "FLWPUBK-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-X"
+      secretkey = "FLWSECK-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-X"
+      paymenttype = "card"
+      meta = {
+        [{
+          metaname: "color",
+          metavalue: "red"
+        }, {
+          metaname: "storelocation",
+          metavalue: "ikeja"
+        }]
+      }
+      production = {
+        false  // Set production value to false if you are using ravesandbox public and private keys or test enviroment, Set to true if you are ready to go live
+      }
+      onSuccess = {
+        res => this.onSuccess(res)
+      }
+      onFailure = {
+        e => this.onFailure(e)
+      }
+      />
     );
   }
 }
